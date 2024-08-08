@@ -363,6 +363,16 @@ const styles = {
     footerText: {
         margin: '0',
     },
+    backButton: {
+        padding: "0.8rem 1.5rem",
+        fontSize: "1rem",
+        backgroundColor: "#000000",
+        color: "#ffffff",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer",
+        transition: "background-color 0.3s, transform 0.3s",
+      }
 };
 
 export default Front;

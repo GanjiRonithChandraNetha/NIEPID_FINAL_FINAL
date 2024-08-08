@@ -62,7 +62,8 @@ const PrincipalViewStudents = () => {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${localStorage.getItem("token")}`
-                }
+                },
+                
             });
 
             setStudentDetails(response.data.data);

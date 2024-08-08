@@ -24,9 +24,11 @@ const getTeacher = async (req, res) => {
         const teacherDetails = await teacherModel.findOne({ classId }).populate('teacherId');
         if (!teacherDetails) {
             return res.status(404).json({ message: 'teacher not found' });
+        }else{
+            res.json({ teacher: teacherDetails.teacherName });
+
         }
 
-        res.json({ teacher: teacherDetails.teacherName });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server error' });

@@ -67,11 +67,11 @@ export default function App() {
             <Route exact path="/teacher" element={<Teacher />} />
             <Route exact path="/teacher/eval" element={<Front />} />
             <Route exact path="/teacher/hist" element={<History />} />
-            <Route exact path="/teacher/eval/personal" element={<Personal />} />
-            <Route exact path="/teacher/eval/social" element={<Social />} />
-            <Route exact path="/teacher/eval/occupational" element={<Occupational />} />
-            <Route exact path="/teacher/eval/recreational" element={<Recreational />} />
-            <Route exact path="/teacher/eval/academic" element={<Academic />} />
+            <Route exact path="/teacher/term/termEntry/eval/personal" element={<Personal />} />
+            <Route exact path="/teacher/term/termEntry/eval/social" element={<Social />} />
+            <Route exact path="/teacher/term/termEntry/eval/occupational" element={<Occupational />} />
+            <Route exact path="/teacher/term/termEntry/eval/recreational" element={<Recreational />} />
+            <Route exact path="/teacher/term/termEntry/eval/academic" element={<Academic />} />
             <Route exact path="/teacher/term" element={<Term />} />
             <Route exact path="/teacher/term/termEntry" element={<TermEntry/>}/>
 

@@ -3,7 +3,7 @@ const app=express();
 const jwt=require('jsonwebtoken')
 const cors=require('cors')
 
-app.use(cors())
+app.use(cors()) 
 
 //Routes
  const studentRoutes=require('./routes/student.route')

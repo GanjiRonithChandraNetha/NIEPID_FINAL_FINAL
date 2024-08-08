@@ -87,7 +87,7 @@ const Term = () => {
           <img src={image} alt="Logo" style={styles.logoImage} />
           <span style={styles.logoLabel}>NIEPID</span>
         </div>
-        <button onClick={() => navigate('/teacher')} style={styles.button}>Back</button>
+        <button onClick={() => navigate('/teacher')} style={styles.backButton} >Back</button>
       </header>
       <div style={styles.hero}>
         <h1 style={styles.heroTitle}>Terms</h1>
@@ -98,12 +98,15 @@ const Term = () => {
             <button key={section} onClick={() => handleSection(section)} style={styles.termButton}>{section}</button>
           ))}
         </div>
-        <div style={styles.buttonContainer}>
+        <div style={styles.buttonContainer}> 
           {years.map((year) => (
             <button key={year} onClick={() => handleYear(year)} style={styles.termButton}>Year {year}</button>
           ))}
         </div>
       </div>
+      <footer style={styles.footer}>
+                <p style={styles.footerText}>&copy; 2024 Functional Assessment. All rights reserved.</p>
+            </footer>
     </div>
   );
 };
@@ -180,6 +183,25 @@ const styles = {
     border: 'none',
     borderRadius: '5px',
     cursor: 'pointer',
+  },
+  backButton: {
+    padding: "0.8rem 1.5rem",
+    fontSize: "1rem",
+    backgroundColor: "#000000",
+    color: "#ffffff",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    transition: "background-color 0.3s, transform 0.3s",
+  },
+  footer: {
+    textAlign: 'center',
+    padding: '1rem',
+    backgroundColor: '#007bff',
+    color: 'white',
+  },
+  footerText: {
+    margin: '0',
   },
 };
 

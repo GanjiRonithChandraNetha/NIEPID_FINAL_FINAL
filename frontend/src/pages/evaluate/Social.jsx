@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { createUseStyles } from 'react-jss';
 import { useLocation } from 'react-router-dom';
+import image from './th.jpeg'
+import { useNavigate } from 'react-router-dom';
 // import flattenStudentData from '../helpers/flattenStudentData';
 
 const useStyles = createUseStyles({
@@ -180,6 +182,17 @@ const Social = () => {
     // const term = "I"
     // const year = "2023"
 
+    const navigate = useNavigate()
+    const Header = () => (
+        <header style={styles.header}>
+            <div style={styles.logo}>
+                <img src={image} alt="Logo" style={styles.logoImage} />
+                <span style={styles.logoLabel}>NIEPID</span>
+            </div>
+            <button onClick={() => navigate('/teacher/eval')} style={styles.backButton}>Back</button>
+        </header>
+    )
+    
     useEffect(async () => {
         console.log(term, currTerm)
         console.log(year, currYear)
@@ -348,21 +361,53 @@ const Social = () => {
     }
 
     return (
-        <form className={classes.registrationForm} onSubmit={handleSubmit}>
-            <div className={classes.title}>Functional Assessment Checklist For Programming</div>
-            <div className={classes.title}>Social</div>
-            <table className={classes.table}>
-                <tbody>
-                    {questions.map((question, index) => (
-                        <tr key={index}>
-                            <td className={classes.td}>{index + 1}</td>
-                            <td className={classes.td}>{question.question}</td>
+        <>
+            <Header/>
+            <form className={classes.registrationForm} onSubmit={handleSubmit}>
+                <div className={classes.title}>Functional Assessment Checklist For Programming</div>
+                <div className={classes.title}>Social</div>
+                <table className={classes.table}>
+                    <tbody>
+                        {questions.map((question, index) => (
+                            <tr key={index}>
+                                <td className={classes.td}>{index + 1}</td>
+                                <td className={classes.td}>{question.question}</td>
+                                <td className={classes.td}>
+                                    <select
+                                        name={`s${index + 1}`}
+                                        value={answer[`s${index + 1}`]}
+                                        onChange={handleChange}
+                                        //disabled={(term !== currTerm || year !== currYear || section !== currSection)}
+                                        className={classes.textInput}
+                                    >
+                                        <option value="">Select an option</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                        <option value="NE">NE</option>
+                                        <option value="C-P1">C-P1</option>
+                                        <option value="C-P2">C-P2</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        ))}
+                        <tr>
+                            <td className={classes.td}>{questions.length + 1}</td>
+                            <td className={classes.td}>
+                                <input
+                                    type="text"
+                                    name="newQuestion"
+                                    value={newQuestion}
+                                    onChange={handleNewQuestionChange}
+                                    className={classes.textInput}
+                                    placeholder="Enter new question"
+                                />
+                            </td>
                             <td className={classes.td}>
                                 <select
-                                    name={`s${index + 1}`}
-                                    value={answer[`s${index + 1}`]}
-                                    onChange={handleChange}
-                                    //disabled={(term !== currTerm || year !== currYear || section !== currSection)}
+                                    name="newAnswer"
+                                    value={newAnswer}
+                                    onChange={handleNewAnswerChange}
                                     className={classes.textInput}
                                 >
                                     <option value="">Select an option</option>
@@ -375,62 +420,86 @@ const Social = () => {
                                 </select>
                             </td>
                         </tr>
-                    ))}
-                    <tr>
-                        <td className={classes.td}>{questions.length + 1}</td>
-                        <td className={classes.td}>
-                            <input
-                                type="text"
-                                name="newQuestion"
-                                value={newQuestion}
-                                onChange={handleNewQuestionChange}
-                                className={classes.textInput}
-                                placeholder="Enter new question"
-                            />
-                        </td>
-                        <td className={classes.td}>
-                            <select
-                                name="newAnswer"
-                                value={newAnswer}
-                                onChange={handleNewAnswerChange}
-                                className={classes.textInput}
-                            >
-                                <option value="">Select an option</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                                <option value="NA">NA</option>
-                                <option value="NE">NE</option>
-                                <option value="C-P1">C-P1</option>
-                                <option value="C-P2">C-P2</option>
-                            </select>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div className={classes.buttonContainer}>
-                <button
-                    className={classes.button}
-                    onClick={handleAddRow}
-                    disabled={!newQuestion.trim() || !newAnswer.trim()}
-                >
-                    Add Question
-                </button>
-                <div className={classes.buttonContainer1}>
-                    <label className={classes.label}>{"Percentage : " + percent + "%"}</label>
-                    <button className={classes.button} onClick={handleEvaluate}>Evaluate</button>
+                    </tbody>
+                </table>
+                <div className={classes.buttonContainer}>
+                    <button
+                        className={classes.button}
+                        onClick={handleAddRow}
+                        disabled={!newQuestion.trim() || !newAnswer.trim()}
+                    >
+                        Add Question
+                    </button>
+                    <div className={classes.buttonContainer1}>
+                        <label className={classes.label}>{"Percentage : " + percent + "%"}</label>
+                        <button className={classes.button} onClick={handleEvaluate}>Evaluate</button>
+                    </div>
                 </div>
-            </div>
-            <textarea
-                name="comments"
-                value={comments}
-                onChange={handleCommentsChange}
-                disabled={true}
-                className={classes.textArea}
-                placeholder={oldComments}
-            />
-            <button id="submit" className={classes.button} disabled={true} type="submit">Submit</button>
-        </form>
+                <textarea
+                    name="comments"
+                    value={comments}
+                    onChange={handleCommentsChange}
+                    disabled={true}
+                    className={classes.textArea}
+                    placeholder={oldComments}
+                />
+                <button id="submit" className={classes.button} disabled={true} type="submit">Submit</button>
+            </form>
+            <footer style={footerStyles.footer}>
+                <p style={footerStyles.text}>© 2024 NIEPID. All rights reserved.</p>
+            </footer>
+        </>
     );
+};
+
+const styles = {
+    header: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '1rem 2rem',
+        backgroundColor: '#007bff',
+        color: '#ffffff',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        marginBottom: '1rem'
+    },
+    logo: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+    logoImage: {
+        width: '40px',
+        height: '40px',
+        marginRight: '0.5rem',
+    },
+    logoLabel: {
+        fontSize: '1.5rem',
+    },
+    backButton: {
+        padding: "0.8rem 1.5rem",
+        fontSize: "1rem",
+        backgroundColor: "#000000",
+        color: "#ffffff",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer",
+        transition: "background-color 0.3s, transform 0.3s",
+    },
+};
+
+const footerStyles = {
+    footer: {
+        backgroundColor: '#007bff',
+        padding: '1rem',
+        textAlign: 'center',
+        color: '#ffffff',
+        position: 'relative',
+        bottom: 0,
+        width: '100%',
+    },
+    text: {
+        margin: 0,
+    }
 };
 
 export default Social;

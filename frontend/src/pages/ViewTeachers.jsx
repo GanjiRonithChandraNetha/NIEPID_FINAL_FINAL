@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import image from './th.jpeg'
 
 const TeacherTable = () => {
     const [teacherDetails, setTeacherDetails] = useState([]);
@@ -97,6 +98,31 @@ const TeacherTable = () => {
             setEditedTeacher({ ...editedTeacher, [name]: value });
         }
     };
+    //navigate('/principle')108
+    
+    const navigate = useNavigate()
+
+    const handleNavigate = ()=>{
+        if(role == 'admin'){
+            navigate('/admin')
+        }else if (role == 'principle'){
+            navigate('/principle')
+        }
+    }
+
+    const Header = () => (
+        <header style={styles.header}>
+            <div style={styles.logo}>
+                <img  src={image} alt="Logo" style={styles.logoImage} />
+                <span style={styles.logoLabel}>NIEPID</span>
+            </div>
+            <nav style={styles.navLinks}>
+                <button onClick={() => {handleNavigate()}} style={styles.backButton}>
+                    Back
+                </button>
+            </nav>
+        </header>
+    );
 
     // Conditionally render the edit button based on the role
     const renderActionButton = (teacher) => {
@@ -123,78 +149,84 @@ const TeacherTable = () => {
         headers.push('Actions');
     }
     return (
-        <div style={styles.container}>
-            <h1 style={styles.heading}>Teacher Details</h1>
-            <table style={styles.table}>
-                <thead>
-                    <tr>
-                        {headers.map((header) => (
-                            <th style={styles.th} key={header}>{header}</th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {teacherDetails.map((teacher, index) => (
-                        <tr key={teacher.teacherId} style={index % 2 === 0 ? styles.evenRow : styles.oddRow}>
-                            <td style={styles.td}>
-                                <input
-                                    type="text"
-                                    name="teacherId"
-                                    value={editMode === teacher.teacherId ? editedTeacher.teacherId : teacher.teacherId}
-                                    onChange={handleInputChange}
-                                    style={styles.input}
-                                    readOnly={editMode !== teacher.teacherId}
-                                />
-                            </td>
-                            <td style={styles.td}>
-                                <input
-                                    type="text"
-                                    name="teacherName"
-                                    value={editMode === teacher.teacherId ? editedTeacher.teacherName : teacher.teacherName}
-                                    onChange={handleInputChange}
-                                    style={styles.input}
-                                    readOnly={editMode !== teacher.teacherId}
-                                />
-                            </td>
-                            <td style={styles.td}>
-                                <input
-                                    type="text"
-                                    name="email"
-                                    value={editMode === teacher.teacherId ? editedTeacher.email : teacher.email}
-                                    onChange={handleInputChange}
-                                    style={styles.input}
-                                    readOnly={editMode !== teacher.teacherId}
-                                />
-                            </td>
-                            <td style={styles.td}>
-                                <input
-                                    type="text"
-                                    name="teacherMNo"
-                                    value={editMode === teacher.teacherId ? editedTeacher.teacherMNo : teacher.teacherMNo}
-                                    onChange={handleInputChange}
-                                    style={styles.input}
-                                    readOnly={editMode !== teacher.teacherId}
-                                />
-                            </td>
-                            <td style={styles.td}>
-                                <input
-                                    type="text"
-                                    name="classId"
-                                    value={editMode === teacher.teacherId ? editedTeacher.classId : teacher.classId}
-                                    onChange={handleInputChange}
-                                    style={styles.input}
-                                    readOnly={editMode !== teacher.teacherId}
-                                />
-                            </td>
-                            {role === "admin" ? <td style={styles.td}>
-                                {renderActionButton(teacher)}
-                            </td> : null}
-
+        <>
+            <Header/>
+            <div style={styles.container}>
+                <h1 style={styles.heading}>Teacher Details</h1>
+                <table style={styles.table}>
+                    <thead>
+                        <tr>
+                            {headers.map((header) => (
+                                <th style={styles.th} key={header}>{header}</th>
+                            ))}
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        {teacherDetails.map((teacher, index) => (
+                            <tr key={teacher.teacherId} style={index % 2 === 0 ? styles.evenRow : styles.oddRow}>
+                                <td style={styles.td}>
+                                    <input
+                                        type="text"
+                                        name="teacherId"
+                                        value={editMode === teacher.teacherId ? editedTeacher.teacherId : teacher.teacherId}
+                                        onChange={handleInputChange}
+                                        style={styles.input}
+                                        readOnly={editMode !== teacher.teacherId}
+                                    />
+                                </td>
+                                <td style={styles.td}>
+                                    <input
+                                        type="text"
+                                        name="teacherName"
+                                        value={editMode === teacher.teacherId ? editedTeacher.teacherName : teacher.teacherName}
+                                        onChange={handleInputChange}
+                                        style={styles.input}
+                                        readOnly={editMode !== teacher.teacherId}
+                                    />
+                                </td>
+                                <td style={styles.td}>
+                                    <input
+                                        type="text"
+                                        name="email"
+                                        value={editMode === teacher.teacherId ? editedTeacher.email : teacher.email}
+                                        onChange={handleInputChange}
+                                        style={styles.input}
+                                        readOnly={editMode !== teacher.teacherId}
+                                    />
+                                </td>
+                                <td style={styles.td}>
+                                    <input
+                                        type="text"
+                                        name="teacherMNo"
+                                        value={editMode === teacher.teacherId ? editedTeacher.teacherMNo : teacher.teacherMNo}
+                                        onChange={handleInputChange}
+                                        style={styles.input}
+                                        readOnly={editMode !== teacher.teacherId}
+                                    />
+                                </td>
+                                <td style={styles.td}>
+                                    <input
+                                        type="text"
+                                        name="classId"
+                                        value={editMode === teacher.teacherId ? editedTeacher.classId : teacher.classId}
+                                        onChange={handleInputChange}
+                                        style={styles.input}
+                                        readOnly={editMode !== teacher.teacherId}
+                                    />
+                                </td>
+                                {role === "admin" ? <td style={styles.td}>
+                                    {renderActionButton(teacher)}
+                                </td> : null}
+
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <footer style={footerStyles.footer}>
+                <p>&copy; 2023 Our Website. All rights reserved.</p>
+            </footer>
+        </>
     );
 };
 
@@ -268,6 +300,53 @@ const styles = {
         border: '1px solid #ddd',
         borderRadius: '4px',
         boxSizing: 'border-box'
+    },
+    header: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '1rem 2rem',
+        backgroundColor: '#007bff',
+        color: '#ffffff',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        marginBottom: '1rem'
+    },
+    logo: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+    logoImage: {
+        width: '40px',
+        height: '40px',
+        marginRight: '0.5rem',
+    },
+    logoLabel: {
+        fontSize: '1.5rem',
+    },
+    backButton: {
+        padding: "0.8rem 1.5rem",
+        fontSize: "1rem",
+        backgroundColor: "#000000",
+        color: "#ffffff",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer",
+        transition: "background-color 0.3s, transform 0.3s",
+    }
+};
+
+const footerStyles = {
+    footer: {
+      backgroundColor: '#007bff',
+      padding: '1rem',
+      textAlign: 'center',
+      color: '#ffffff',
+      position: 'relative',
+      bottom: 0,
+      width: '100%',
+    },
+    text: {
+      margin: 0,
     }
 };
 

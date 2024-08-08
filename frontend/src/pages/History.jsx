@@ -60,27 +60,70 @@ const styles = {
     },
     selectHover: {
         borderColor: "#007bff",
+    },
+    backButton: {
+        padding: "0.8rem 1.5rem",
+        fontSize: "1rem",
+        backgroundColor: "#000000",
+        color: "#ffffff",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer",
+        transition: "background-color 0.3s, transform 0.3s",
     }
 };
 
-const Header = () => (
-    <header style={styles.header}>
-        <div style={styles.logo}>
-            <img src={image} alt="Logo" style={styles.logoImage} />
-            <span style={styles.logoLabel}>NIEPID</span>
-        </div>
-    </header>
-);
+// const Header = () => (
+//     <header style={styles.header}>
+//         <div style={styles.logo}>
+//             <img src={image} alt="Logo" style={styles.logoImage} />
+//             <span style={styles.logoLabel}>NIEPID</span>
+//         </div>
+//         <button onClick={() => {
+//                 const role = localStorage.getItem("role");
+//                 if (role === "student")
+//                     navigate('/student')
+//                 if (role === "teacher")
+//                     navigate('/teacher')
+//                 if (role === "principle")
+//                     navigate('/principle/viewstudents')
+//                 if (role === "admin")
+//                     navigate('/admin/viewstudents')
+//             }} style={styles.backButton}>Back</button>
+//     </header>
+// );
 
-const Footer = () => (
-    <footer style={styles.footer}>&copy; 2024 Student History Portal</footer>
-);
+// const Footer = () => (
+//     <footer style={styles.footer}>&copy; 2024 Student History Portal</footer>
+// );
 
 const StudentPerformance = () => {
     const navigate = useNavigate()
     const id = localStorage.getItem("studentId")
     const role = localStorage.getItem("role")
     console.log(role);
+    const Header = () => (
+        <header style={styles.header}>
+            <div style={styles.logo}>
+                <img src={image} alt="Logo" style={styles.logoImage} />
+                <span style={styles.logoLabel}>NIEPID</span>
+            </div>
+            <button onClick={() => {
+                    const role = localStorage.getItem("role");
+                    if (role === "student")
+                        navigate('/student')
+                    if (role === "teacher")
+                        navigate('/teacher')
+                    if (role === "principle")
+                        navigate('/principle/viewstudents')
+                    if (role === "admin")
+                        navigate('/admin/viewstudents')
+                }} style={styles.backButton}>Back</button>
+        </header>
+    );
+    const Footer = () => (
+        <footer style={styles.footer}>&copy; 2024 Student History Portal</footer>
+    );
     useEffect(async () => {
         console.log("hello")
         if (role === "teacher") {

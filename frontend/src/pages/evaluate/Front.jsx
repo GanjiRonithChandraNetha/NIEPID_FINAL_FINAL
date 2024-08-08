@@ -32,7 +32,7 @@ const Front = () => {
         <span style={styles.logoLabel}>NIEPID</span>
       </div>
       <nav style={styles.navLinks}>
-        <button onClick={() => navigateTo('/teacher')} style={styles.backButton}>
+        <button onClick={() => navigateTo('/teacher/term/termEntry')} style={styles.backButton}>
           Back
         </button>
       </nav>
@@ -144,23 +144,23 @@ const Front = () => {
         <h1 style={styles.subHeading}>{section.toUpperCase()} -- Year{year} -- Term{term}</h1>
         <div style={styles.buttonContainer}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <button style={styles.button} onClick={() => navigateTo('personal/')}>Personal</button>
+            <button style={styles.button} onClick={() => navigateTo('/teacher/term/termEntry/eval/personal')}>Personal</button>
             <label style={{ fontSize: '13px' }}>{"Percentage : " + personalPercent + "%"}</label>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <button style={styles.button} onClick={() => navigateTo('social/')}>Social</button>
+            <button style={styles.button} onClick={() => navigateTo('/teacher/term/termEntry/eval/social')}>Social</button>
             <label style={{ fontSize: '13px' }}>{"Percentage : " + socialPercent + "%"}</label>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <button style={styles.button} onClick={() => navigateTo('occupational/')}>Occupational</button>
+            <button style={styles.button} onClick={() => navigateTo('/teacher/term/termEntry/eval/occupational')}>Occupational</button>
             <label style={{ fontSize: '13px' }}>{"Percentage : " + occupationalPercent + "%"}</label>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <button style={styles.button} onClick={() => navigateTo('academic/')}>Academic</button>
+            <button style={styles.button} onClick={() => navigateTo('/teacher/term/termEntry/eval/academic')}>Academic</button>
             <label style={{ fontSize: '13px' }}>{"Percentage : " + academicPercent + "%"}</label>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <button style={styles.button} onClick={() => navigateTo('recreational/')}>Recreational</button>
+            <button style={styles.button} onClick={() => navigateTo('/teacher/term/termEntry/eval/recreational')}>Recreational</button>
             <label style={{ fontSize: '13px' }}>{"Percentage : " + recreationalPercent + "%"}</label>
             <label style={{ fontSize: '13px' }}>{"Mode : " + mode}</label>
           </div>

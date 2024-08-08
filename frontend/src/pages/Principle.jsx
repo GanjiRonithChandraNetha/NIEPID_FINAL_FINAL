@@ -34,7 +34,7 @@ function Principal() {
                     <img src={image} alt="Logo" style={styles.logoImage} />
                     <span style={styles.logoLabel}>NIEPID</span>
                 </div>
-                <button onClick={handleLogout} style={styles.b1}>
+                <button onClick={handleLogout} style={styles.logoutButton}>
                     Logout
                 </button>
             </header>
@@ -115,6 +115,18 @@ const styles = {
     },
     logoLabel: {
         fontSize: '1.5rem',
+    },
+    logoutButton: {
+        padding: '10px 15px',
+        backgroundColor: '#ff4d4d',
+        color: '#fff',
+        border: 'none',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        transition: 'background-color 0.3s ease',
+    },
+    logoutButtonHover: {
+        backgroundColor: '#e60000',
     },
     navLinks: {
         display: 'flex',

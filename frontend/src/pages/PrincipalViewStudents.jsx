@@ -4,6 +4,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import image from './th.jpeg'
+
 
 // Add the icons to the library
 library.add(faSearch);
@@ -151,77 +153,97 @@ const PrincipalViewStudents = () => {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
+    const Header = () => (
+        <header style={styles.header}>
+            <div style={styles.logo}>
+                <img src={image} alt="Logo" style={styles.logoImage} />
+                <span style={styles.logoLabel}>NIEPID</span>
+            </div>
+            <nav style={styles.navLinks}>
+                <button onClick={() => navigate('/principle')} style={styles.backButton}>
+                    Back
+                </button>
+            </nav>
+        </header>
+    );
+
     return (
-        <div style={styles.container}>
-            <h1 style={styles.heading}>Student Details</h1>
-            <table style={styles.table}>
-                <thead>
-                    <tr>
-                        {['regNo', 'name', 'currYear', 'currTerm', 'classId'].map((header, index) => (
-                            <th style={styles.th} key={header}>
-                                <div style={styles.thContent}>
-                                    <span>{header}</span>
-                                    {header !== 'Actions' && (
-                                        <FontAwesomeIcon
-                                            style={styles.icon}
-                                            icon={faSearch}
-                                            onClick={() => toggleSearch(header.replace(' ', ''))}
+        <div>
+            <Header/>
+            <div style={styles.container}>
+                <h1 style={styles.heading}>Student Details</h1>
+                <table style={styles.table}>
+                    <thead>
+                        <tr>
+                            {['regNo', 'name', 'currYear', 'currTerm', 'classId'].map((header, index) => (
+                                <th style={styles.th} key={header}>
+                                    <div style={styles.thContent}>
+                                        <span>{header}</span>
+                                        {header !== 'Actions' && (
+                                            <FontAwesomeIcon
+                                                style={styles.icon}
+                                                icon={faSearch}
+                                                onClick={() => toggleSearch(header.replace(' ', ''))}
+                                            />
+                                        )}
+                                    </div>
+                                    {header !== 'Actions' && showSearch[header.replace(' ', '')] && (
+                                        <SearchInput
+                                            name={header.replace(' ', '')}
+                                            value={searchValues[header.replace(' ', '')]}
+                                            onChange={handleSearchChange}
                                         />
                                     )}
+                                </th>
+                            ))}
+                            <th style={styles.th}>
+                                <div style={styles.thContent}>
+                                    <span>Allocated Teacher</span>
                                 </div>
-                                {header !== 'Actions' && showSearch[header.replace(' ', '')] && (
-                                    <SearchInput
-                                        name={header.replace(' ', '')}
-                                        value={searchValues[header.replace(' ', '')]}
-                                        onChange={handleSearchChange}
-                                    />
-                                )}
                             </th>
-                        ))}
-                        <th style={styles.th}>
-                            <div style={styles.thContent}>
-                                <span>Allocated Teacher</span>
-                            </div>
-                        </th>
-                        <th style={styles.th}>
-                            <div style={styles.thContent}>
-                                <span>Actions</span>
-                            </div>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredStudents.map((student, index) => (
-                        <tr key={student._id} style={index % 2 === 0 ? styles.evenRow : styles.oddRow}>
-                            <td style={styles.td}>{student.regNo}</td>
-                            <td style={styles.td}>{student.name}</td>
-                            <td style={styles.td}>{student.currYear}</td>
-                            <td style={styles.td}>{student.currTerm}</td>
-                            <td style={styles.td}>{student.classId}</td>
-                            <td style={styles.td}>
-                                {teacherDetails[student.classId] ? teacherDetails[student.classId] : 'Loading...'}
-                            </td>
-                            <td style={styles.td}>
-                                <div style={styles.div}>
-                                    <button style={styles.button} onClick={() => showHistory(student.regNo)}>
-                                        Show History
-                                    </button>
-                                    <button style={styles.button} onClick={() => showDetails(student.regNo)}>
-                                        Show Details
-                                    </button>
+                            <th style={styles.th}>
+                                <div style={styles.thContent}>
+                                    <span>Actions</span>
                                 </div>
-                            </td>
+                            </th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {filteredStudents.map((student, index) => (
+                            <tr key={student._id} style={index % 2 === 0 ? styles.evenRow : styles.oddRow}>
+                                <td style={styles.td}>{student.regNo}</td>
+                                <td style={styles.td}>{student.name}</td>
+                                <td style={styles.td}>{student.currYear}</td>
+                                <td style={styles.td}>{student.currTerm}</td>
+                                <td style={styles.td}>{student.classId}</td>
+                                <td style={styles.td}>
+                                    {teacherDetails[student.classId] ? teacherDetails[student.classId] : 'Loading...'}
+                                </td>
+                                <td style={styles.td}>
+                                    <div style={styles.div}>
+                                        <button style={styles.button} onClick={() => showHistory(student.regNo)}>
+                                            Show History
+                                        </button>
+                                        <button style={styles.button} onClick={() => showDetails(student.regNo)}>
+                                            Show Details
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <footer style={footerStyles.footer}>
+                <p>&copy; 2023 Our Website. All rights reserved.</p>
+            </footer>
         </div>
     );
 };
 
 const styles = {
-    div:{
-        display:'flex',
+    div: {
+        display: 'flex',
     },
     container: {
         padding: '20px',
@@ -290,7 +312,7 @@ const styles = {
         borderRadius: '4px',
         cursor: 'pointer',
         transition: 'background-color 0.3s',
-        margin:'5px'
+        margin: '5px'
     },
     buttonHover: {
         backgroundColor: '#005bb5'
@@ -308,7 +330,54 @@ const styles = {
         ':hover': {
             backgroundColor: '#e9ecef'
         }
-    }
+    },
+    header: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '1rem 2rem',
+        backgroundColor: '#007bff',
+        color: '#ffffff',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        marginBottom: '1rem'
+    },
+    logo: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+    logoImage: {
+        width: '40px',
+        height: '40px',
+        marginRight: '0.5rem',
+    },
+    logoLabel: {
+        fontSize: '1.5rem',
+    },
+    backButton: {
+        padding: "0.8rem 1.5rem",
+        fontSize: "1rem",
+        backgroundColor: "#000000",
+        color: "#ffffff",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer",
+        transition: "background-color 0.3s, transform 0.3s",
+    },
 };
+
+const footerStyles = {
+    footer: {
+      backgroundColor: '#007bff',
+      padding: '1rem',
+      textAlign: 'center',
+      color: '#ffffff',
+      position: 'relative',
+      bottom: 0,
+      width: '100%',
+    },
+    text: {
+      margin: 0,
+    }
+  };
 
 export default PrincipalViewStudents;

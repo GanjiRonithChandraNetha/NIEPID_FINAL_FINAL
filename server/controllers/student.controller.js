@@ -23,13 +23,12 @@ const viewEvaluation=async(req,res)=>{
 const viewDetails=async(req,res)=>{
     try {
         console.log("frllo")
-        const std = await studentDetailsModel.findOne({'info.regNo':req.headers.regno})
-        .catch((err)=>{
-            console.log(err+" failed")
-            res.status(501).json({message:"stdent not found"})
-        })
-        console.log(std)
-        res.status(200).json(std)
+         await studentDetailsModel.findOne({'info.regNo':req.headers.regno})
+         .then((std)=>{
+            console.log(std)
+            res.status(200).json(std)
+         })
+        
       } catch (error) {
             console.log("failed\n"+error)
             res.status(500).json({message:"internal server error"});
