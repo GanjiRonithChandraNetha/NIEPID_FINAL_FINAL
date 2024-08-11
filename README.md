@@ -18,4 +18,6 @@
       + when ever this happens it shows 300 status error
 
   is the image of the admin portal
-  link to [admin view student] ()
+  ![page_ViewStudent]()
+
+  link to [Admin view student] ()
