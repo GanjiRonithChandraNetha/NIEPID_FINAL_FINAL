@@ -1,0 +1,117 @@
+[{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d218"
+  },
+  "teacherId": "supraja",
+  "teacherName": "supraja",
+  "teacherMNo": "95239822332",
+  "email": "aldjf;lfja@gmail.com",
+  "classId": [
+    "preprimary_1"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d21c"
+  },
+  "teacherId": "akshita",
+  "teacherName": "akshita",
+  "teacherMNo": "2039480942",
+  "email": "lakfdsjsdkfjh@gmai.com",
+  "classId": [
+    "preprimary_3"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d21e"
+  },
+  "teacherId": "tina",
+  "teacherName": "tina",
+  "teacherMNo": "4903389433",
+  "email": "alhadjaldksjfh@gmail.com",
+  "classId": [
+    "primary1_1"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d220"
+  },
+  "teacherId": "binnu",
+  "teacherName": "binnu",
+  "teacherMNo": "9302409444",
+  "email": "ioerferoijf@gmail.com",
+  "classId": [
+    "primary1_2"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d222"
+  },
+  "teacherId": "adwitha",
+  "teacherName": "adwitha",
+  "teacherMNo": "4075235820",
+  "email": "adfkljaaldsf@gmail.com",
+  "classId": [
+    "primary1_3"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d21a"
+  },
+  "teacherId": "vanja",
+  "teacherName": "vanaja",
+  "teacherMNo": "4389203920",
+  "email": "slkdjfasdkjfaldj@gmail.com",
+  "classId": [
+    "preprimary_2"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d226"
+  },
+  "teacherId": "minnu",
+  "teacherName": "minnu",
+  "teacherMNo": "2342397832",
+  "email": "lahfkjdkaljs@gmail.com",
+  "classId": [
+    "primary2_2"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d228"
+  },
+  "teacherId": "sarayu",
+  "teacherName": "sarayu",
+  "teacherMNo": "9230339023",
+  "email": "dsjlfkflkdsjfl@gmail.com",
+  "classId": [
+    "primary2_3"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d224"
+  },
+  "teacherId": "honey",
+  "teacherName": "honey",
+  "teacherMNo": "4903570439",
+  "email": "sdlaskdjfalsdj@gmail.com",
+  "classId": [
+    "primary2_1"
+  ],
+  "__v": 0
+}]

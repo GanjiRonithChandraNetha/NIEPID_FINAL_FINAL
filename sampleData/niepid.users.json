@@ -1,0 +1,187 @@
+[{
+  "_id": {
+    "$oid": "66a48387d9edf09eabaef753"
+  },
+  "id": "admin",
+  "password": "admin",
+  "role": "admin"
+},
+{
+  "_id": {
+    "$oid": "66a483a4d9edf09eabaef755"
+  },
+  "id": "p1",
+  "password": "p1",
+  "role": "principle"
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d23b"
+  },
+  "id": "supraja",
+  "password": "supraja",
+  "role": "teacher",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d23d"
+  },
+  "id": "akshita",
+  "password": "akshita",
+  "role": "teacher",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d23f"
+  },
+  "id": "tina",
+  "password": "tina",
+  "role": "teacher",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d241"
+  },
+  "id": "binnu",
+  "password": "binnu",
+  "role": "teacher",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d243"
+  },
+  "id": "adwitha",
+  "password": "adwitha",
+  "role": "teacher",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d245"
+  },
+  "id": "vanja",
+  "password": "vanja",
+  "role": "teacher",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d247"
+  },
+  "id": "minnu",
+  "password": "minnu",
+  "role": "teacher",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d249"
+  },
+  "id": "sarayu",
+  "password": "sarayu",
+  "role": "teacher",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d24b"
+  },
+  "id": "honey",
+  "password": "honey",
+  "role": "teacher",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a49449218e66de2241d2c6"
+  },
+  "id": "22B81A66A3",
+  "password": "22B81A66A3",
+  "role": "student",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a4948b218e66de2241d340"
+  },
+  "id": "22B81A6698",
+  "password": "22B81A6698",
+  "role": "student",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a494cd218e66de2241d3ba"
+  },
+  "id": "22B81A6697",
+  "password": "22B81A6697",
+  "role": "student",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a49594218e66de2241d57e"
+  },
+  "id": "22B81A6699",
+  "password": "22B81A6699",
+  "role": "student",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a495bf218e66de2241d5f8"
+  },
+  "id": "22B81A66A0",
+  "password": "22B81A66A0",
+  "role": "student",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a496f5218e66de2241fab6"
+  },
+  "id": "22B81A66A1",
+  "password": "22B81A66A1",
+  "role": "student",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a49758218e66de2241fba5"
+  },
+  "id": "22B81A66A2",
+  "password": "22B81A66A2",
+  "role": "student",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a49825218e66de2241fc23"
+  },
+  "id": "22B81A66A9",
+  "password": "22B81A66A9",
+  "role": "student",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a4997f218e66de2241fd93"
+  },
+  "id": "22B81A66B0",
+  "password": "22B81A66B0",
+  "role": "student",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a499e9218e66de224201e5"
+  },
+  "id": "22B81A66B1",
+  "password": "22B81A66B1",
+  "role": "student",
+  "__v": 0
+}]

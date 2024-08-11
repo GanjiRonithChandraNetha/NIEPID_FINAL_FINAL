@@ -1,0 +1,112 @@
+[{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d217"
+  },
+  "classId": "preprimary_1",
+  "teacherId": "supraja",
+  "section": "preprimary",
+  "year": "1",
+  "student": [
+    "22B81A66A3",
+    "22B81A6698",
+    "22B81A6697",
+    "22B81A6699",
+    "22B81A66A0",
+    "22B81A66A1",
+    "22B81A66A2",
+    "22B81A66A9",
+    "22B81A66A2",
+    "22B81A6697",
+    "22B81A66B0",
+    "22B81A66B1"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d219"
+  },
+  "classId": "preprimary_2",
+  "teacherId": "vanja",
+  "section": "preprimary",
+  "year": "2",
+  "student": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d21d"
+  },
+  "classId": "primary1_1",
+  "teacherId": "tina",
+  "section": "primary1",
+  "year": "1",
+  "student": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d21f"
+  },
+  "classId": "primary1_2",
+  "teacherId": "binnu",
+  "section": "primary1",
+  "year": "2",
+  "student": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d221"
+  },
+  "classId": "primary1_3",
+  "teacherId": "adwitha",
+  "section": "primary1",
+  "year": "3",
+  "student": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d21b"
+  },
+  "classId": "preprimary_3",
+  "teacherId": "akshita",
+  "section": "preprimary",
+  "year": "3",
+  "student": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d225"
+  },
+  "classId": "primary2_2",
+  "teacherId": "minnu",
+  "section": "primary2",
+  "year": "2",
+  "student": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d227"
+  },
+  "classId": "primary2_3",
+  "teacherId": "sarayu",
+  "section": "primary2",
+  "year": "3",
+  "student": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a493f9218e66de2241d223"
+  },
+  "classId": "primary2_1",
+  "teacherId": "honey",
+  "section": "primary2",
+  "year": "1",
+  "student": [],
+  "__v": 0
+}]
